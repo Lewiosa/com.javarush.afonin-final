@@ -1,0 +1,14 @@
+spring.cache.type: none
+spring:
+  init:
+    mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  config:
+    import: "classpath:env-tests.yaml"
+
+  liquibase:
+    changeLog: "classpath:db/changelog-test.sql"

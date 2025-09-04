@@ -1,0 +1,4 @@
+com\javarush\jira\common\model\BaseEntity.class
+com\javarush\jira\common\HasId.class
+com\javarush\jira\common\BaseRepository.class
+com\javarush\jira\login\internal\UserRepository.class

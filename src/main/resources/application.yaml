@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:jira}
+    username: ${DB_USERNAME:jira}
+    password: ${DB_PASSWORD:JiraRush}
+  init:
+    mode: never
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        jdbc.batch_size: 20
+  liquibase:
+    changeLog: "classpath:db/changelog.sql"
+  jackson:
+    visibility:
+      field: any
+      getter: none
+      setter: none
+      is-getter: none
+  cache:
+    cache-names: users
+    caffeine.spec: maximumSize=10000,expireAfterAccess=5m
+  sql:
+    init:
+      mode: always
+  thymeleaf.check-template-location: false
+  mvc.throw-exception-if-no-handler-found: true
+  web.resources.add-mappings: false
+  config:
+    import: "classpath:env.yaml"
